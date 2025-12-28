@@ -1,17 +1,19 @@
 import pandas as pd
 from datetime import datetime
 from pathlib import Path
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, jsonify
 
 app = Flask(__name__)
 
 BASE = Path("data")
+OUT  = Path("outputs")
 BASE.mkdir(exist_ok=True)
+OUT.mkdir(exist_ok=True)
 
 MASTER_FILE = BASE / "Master file.xlsx"
 
-@app.route("/process", methods=["POST"])
-def process():
+@app.route("/register", methods=["POST"])
+def register():
     incoming_file = request.files["file"]
     incoming_path = BASE / "incoming.xlsx"
     incoming_file.save(incoming_path)
@@ -31,13 +33,28 @@ def process():
         new_rows["Is active"] = "Y"
 
         new_rows = new_rows[master.columns.drop("KEY")]
-        updated_master = pd.concat([master.drop(columns="KEY"), new_rows], ignore_index=True)
-        updated_master.to_excel(MASTER_FILE, index=False)
+        master = pd.concat([master.drop(columns="KEY"), new_rows], ignore_index=True)
+        master.to_excel(MASTER_FILE, index=False)
 
-        out_file = BASE / f"New_Securities_{datetime.now():%d%m%Y}.csv"
+        out_file = OUT / f"New_Securities_{datetime.now():%d%m%Y}.csv"
         new_rows.to_csv(out_file, index=False)
+
         return send_file(out_file)
 
     return "No new securities found"
+
+
+@app.route("/upload", methods=["POST"])
+def upload():
+    file = request.files["file"]
+    path = OUT / file.filename
+    file.save(path)
+    return jsonify({"download_url": f"/download/{file.filename}"})
+
+
+@app.route("/download/<name>")
+def download(name):
+    return send_file(OUT / name, as_attachment=True)
+
 
 app.run(host="0.0.0.0", port=10000)
