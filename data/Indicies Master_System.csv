@@ -1,0 +1,433 @@
+S.No	Index Name	Code	System Value	S.No	SS Notes
+1	India VIX	INDVIX	India VIX	1	Active
+2	NIFTY 100	N100	NIFTY 100	2	Active
+3	NIFTY100 Alpha 30	N100A30	NIFTY100 Alpha 30	3	Active
+4	NIFTY100 Enhanced ESG	N100EESG	NIFTY100 Enhanced ESG	4	Active
+5	NIFTY100 ESG	N100ESG	NIFTY100 ESG	5	Active
+6	NIFTY100 ESG Sector Leaders	N100ESGL	NIFTY100 ESG Sector Leaders	6	Active
+7	NIFTY100 Equal Weight	N100EW	NIFTY100 Equal Weight	7	Active
+8	NIFTY100 Liquid 15	N100L15	NIFTY100 Liquid 15	8	Active
+9	NIFTY100 Low Volatility 30	N100LV30	NIFTY100 Low Volatility 30	9	Active
+10	NIFTY100 Quality 30	N100Q30	NIFTY100 Quality 30	10	Active
+11	NIFTY 10 YR Benchmark G-Sec	N10YBGS	NIFTY 10 YR Benchmark G-Sec	11	Active
+12	NIFTY 10 YR Benchmark G-Sec (Clean Price)	N10YBGSCP	NIFTY 10 YR Benchmark G-Sec (Clean Price)	12	Active
+13	NIFTY 10 YEAR SDL INDEX	N10YSI	NIFTY 10 YR SDL Index	13	Active
+13	NIFTY 10 YR SDL Index	N10YSI	NIFTY 10 YR SDL Index	13	Active
+14	NIFTY 11-15 YR G-Sec Index	N1115YGS	NIFTY 11-15 YR G-Sec Index	14	Active
+15	NIFTY 15 YR and above G-Sec Index	N15YAG	NIFTY 15 YR and above G-Sec Index	15	Active
+16	NIFTY 1D Rate Index	N1DRATE	NIFTY 1D Rate Index	16	Active
+17	NIFTY 200	N200	NIFTY 200	17	Active
+18	NIFTY200 Alpha 30	N200A30	NIFTY200 Alpha 30	18	Active
+19	NIFTY200 Momentum 30	N200M30	NIFTY200 Momentum 30	19	Active
+20	NIFTY200 Quality 30	N200Q30	NIFTY200 Quality 30	20	Active
+21	NIFTY200 Value 30	N200V30	NIFTY200 Value 30	21	Active
+22	NIFTY 3 YEAR SDL	N3YSDL	NIFTY 3 YR SDL	22	Active
+22	NIFTY 3 YR SDL	N3YSDL	NIFTY 3 YR SDL	22	Active
+23	NIFTY 4-8 YR G-Sec Index	N48YGS	NIFTY 4-8 YR G-Sec Index	23	Active
+24	NIFTY 50	N50	NIFTY 50	24	Active
+25	NIFTY 500	N500	NIFTY 500	25	Active
+26	NIFTY500 Equal Weight	N500EQW	NIFTY500 Equal Weight	26	Active
+27	NIFTY500 LargeMidSmall Equal-Cap Weighted	N500LMSEQ	NIFTY500 LargeMidSmall Equal-Cap Weighted	27	Active
+28	NIFTY500 Momentum 50	N500M50	NIFTY500 Momentum 50	28	Active
+29	NIFTY500 Multicap 50:25:25	N500MC502525	NIFTY500 Multicap 50:25:25	29	Active
+30	NIFTY500 Multicap Infrastructure 50:30:20	N500MCINFRA503020	NIFTY500 Multicap Infrastructure 50:30:20	30	Active
+31	NIFTY500 Multicap India Manufacturing 50:30:20	N500MCMANU503020	NIFTY500 Multicap India Manufacturing 50:30:20	31	Active
+32	Nifty500 Multicap Momentum Quality 50	N500MMQ050	Nifty500 Multicap Momentum Quality 50	32	Active
+33	NIFTY500 Shariah	N500SHARIAH	NIFTY500 Shariah	33	Active
+34	NIFTY500 Value 50	N500V50	NIFTY500 Value 50	34	Active
+35	NIFTY 50 Arbitrage	N50ARB	NIFTY 50 Arbitrage	35	Active
+36	NIFTY50 Dividend Points	N50DP	NIFTY50 Dividend Points	36	Active
+37	NIFTY50 Equal Weight	N50EW	NIFTY50 Equal Weight	37	Active
+38	Nifty 50 Futures Index	N50FPR	NIFTY 50 Futures PR	38	Active
+38	NIFTY 50 Futures PR	N50FPR	NIFTY 50 Futures PR	38	Active
+39	NIFTY 50 Futures TR	N50FTR	NIFTY 50 Futures TR	39	Active
+39	Nifty 50 Futures TR Index	N50FTR	NIFTY 50 Futures TR	39	Active
+40	NIFTY50 PR 1x Inverse	N50PR1XI	NIFTY50 PR 1x Inverse	40	Active
+41	NIFTY50 PR 2x Leverage	N50PR2XL	NIFTY50 PR 2x Leverage	41	Active
+42	NIFTY50 Shariah	N50SHARIAH	NIFTY50 Shariah	42	Active
+43	NIFTY50 TR 1x Inverse	N50TR1XI	NIFTY50 TR 1x Inverse	43	Active
+44	NIFTY50 TR 2x Leverage	N50TR2XL	NIFTY50 TR 2x Leverage	44	Active
+45	NIFTY50 USD	N50USD	NIFTY50 USD	45	Active
+46	NIFTY50 Value 20	N50V20	NIFTY50 Value 20	46	Active
+47	NIFTY 5Yr Benchmark G-Sec Index	N5YBGS	NIFTY 5Yr Benchmark G-Sec Index	47	Active
+48	NIFTY 5 YEAR SDL	N5YSDL	NIFTY 5 YR SDL	48	Active
+48	NIFTY 5 YR SDL	N5YSDL	NIFTY 5 YR SDL	48	Active
+49	NIFTY 8-13 YR G-Sec	N813YGS	NIFTY 8-13 YR G-Sec	49	Active
+50	NIFTY AAA Bond Plus SDL Apr 2026 50:50 Index	NAAAAPR2650	NIFTY AAA Bond Plus SDL Apr 2026 50:50 Index	50	Active
+51	NIFTY Aaa Bond Plus SDL Apr 2031 70:30 Index	NAAAAPR317030	NIFTY Aaa Bond Plus SDL Apr 2031 70:30 Index	51	Active
+52	NIFTY AAA CPSE Bond Plus SDL Apr 2027 60:40 Index	NAAACPSEAPR276040	NIFTY AAA CPSE Bond Plus SDL Apr 2027 60:40 Index	52	Active
+53	NIFTY AAA Bond Jun 2025 HTM	NAAAJUN25	NIFTY AAA Bond Jun 2025 HTM	53	Active
+54	NIFTY AAA Bond Plus SDL Apr 2026 70:30 Index	NAAAPR267030	NIFTY AAA Bond Plus SDL Apr 2026 70:30 Index	54	Active
+55	NIFTY AAA PSU BOND PLUS SDL APR 2026 50:50 Index	NAAAPSUBPSDLAPR	NIFTY AAA PSU BOND PLUS SDL APR 2026 50:50 Index	55	Active
+56	NIFTY AAA PSU Bond Plus SDL Sep 2026 50:50 Index	NAAAPSUSEP265050	NIFTY AAA PSU Bond Plus SDL Sep 2026 50:50 Index	56	Active
+57	NIFTY Aditya Birla Group	NABG	NIFTY Aditya Birla Group	57	Check
+58	NIFTY Alpha 50	NAL50	NIFTY Alpha 50	58	Active
+59	NIFTY Alpha LowVolatility 30	NALV30	NIFTY Alpha LowVolatility 30	59	Active
+59	NIFTY Alpha Low-Volatility 30	NALV30	NIFTY Alpha Low-Volatility 30	59	Active
+60	NIFTY Alpha Quality Low-Volatility 30	NAQLV30	NIFTY Alpha Quality Low-Volatility 30	60	Active
+61	NIFTY AQLV 30 Plus 5Yr G-Sec 70:30 Index	NAQLV305Y7030	NIFTY AQLV 30 Plus 5Yr G-Sec 70:30 Index	61	Active
+62	NIFTY Alpha Quality Value Low-Volatility 30	NAQVLV30	NIFTY Alpha Quality Value Low-Volatility 30	62	Active
+63	NIFTY Auto	NAUTO	NIFTY Auto	63	Active
+64	NIFTY Bank	NBANK	NIFTY Bank	64	Active
+65	NIFTY Bharat Bond Index - April 2030	NBBAPR30	NIFTY Bharat Bond Index - April 2030	65	Active
+66	NIFTY Bharat Bond Index - April 2031	NBBAPR31	NIFTY Bharat Bond Index - April 2031	66	Active
+67	NIFTY Bharat Bond Index - April 2032	NBBAPR32	NIFTY Bharat Bond Index - April 2032	67	Active
+68	NIFTY Bharat Bond Index - April 2033	NBBAPR33	NIFTY Bharat Bond Index - April 2033	68	Active
+69	NIFTY Bharat Bond Index - APRIL 2023	NBBIAPR2023	NIFTY Bharat Bond Index - APRIL 2023	69	Data no longer available
+70	NIFTY Bharat Bond Index - APRIL 2025	NBBIAPR2025	NIFTY Bharat Bond Index - APRIL 2025	70	Active
+71	NIFTY Consumer Durables	NCDUR	NIFTY Consumer Durables	71	Active
+72	Nifty Capital Markets	NCM	NIFTY Capital Markets	72	Active
+73	NIFTY Commodities	NCOMMOD	NIFTY Commodities	73	Active
+74	NIFTY Composite G-Sec Index	NCOMPG	NIFTY Composite G-Sec Index	74	Active
+75	NIFTY Core Housing	NCOREH	NIFTY Core Housing	75	Active
+76	NIFTY CPSE	NCPS	NIFTY CPSE	76	Active
+77	NIFTY CPSE Bond Plus SDL Sep 2024 50:50 Index	NCPSSEP245050	NIFTY CPSE Bond Plus SDL Sep 2024 50:50 Index	77	Data no longer available
+78	NIFTY CPSE Bond Plus SDL Sep 2026 50:50 Index	NCPSSEP265050	NIFTY CPSE Bond Plus SDL Sep 2026 50:50 Index	78	Active
+79	NIFTY Dividend Opportunities 50	NDO50	NIFTY Dividend Opportunities 50	79	Active
+80	NIFTY Energy	NENERGY	NIFTY Energy	80	Active
+81	NIFTY EV & New Age Automotive	NEVNAA	NIFTY EV & New Age Automotive	81	Active
+82	NIFTY Financial Services	NFINANCE	NIFTY Financial Services	82	Active
+83	NIFTY FMCG	NFMCG	NIFTY FMCG	83	Active
+84	NIFTY Financial Services 25/50	NFS2550	NIFTY Financial Services 25/50	84	Active
+85	NIFTY Financial Services Ex-Bank	NFSExB	NIFTY Financial Services Ex-Bank	85	Active
+86	NIFTY Growth Sectors 15	NGS15	NIFTY Growth Sectors 15	86	Active
+87	NIFTY G-Sec Apr 2029	NGSAPR29	NIFTY G-Sec Apr 2029	87	Active
+88	NIFTY G-Sec Dec 2026 Index	NGSDEC26	NIFTY G-Sec Dec 2026 Index	88	Active
+89	NIFTY G-Sec Dec 2029 Index	NGSDEC29	NIFTY G-Sec Dec 2029 Index	89	Active
+90	NIFTY G-Sec Dec 2030 Index	NGSDEC30	NIFTY G-Sec Dec 2030 Index	90	Active
+91	NIFTY G-Sec Jul 2027	NGSJUL27	NIFTY G-Sec Jul 2027	91	Active
+92	NIFTY G-Sec Jul 2031 Index	NGSJUL31	NIFTY G-Sec Jul 2031 Index	92	Active
+93	NIFTY G-Sec Jul 2033	NGSJUL33	NIFTY G-Sec Jul 2033	93	Active
+94	NIFTY G-Sec Jun 2027 Index	NGSJUN27	NIFTY G-Sec Jun 2027 Index	94	Active
+95	NIFTY G-Sec Jun 2036 Index	NGSJUN36	NIFTY G-Sec Jun 2036 Index	95	Active
+96	NIFTY G-Sec May 2029	NGSMAY29	NIFTY G-Sec May 2029	96	Active
+97	NIFTY G-Sec Oct 2028 Index	NGSOCT28	NIFTY G-Sec Oct 2028 Index	97	Active
+98	NIFTY G-Sec Sep 2027 Index	NGSSEP27	NIFTY G-Sec Sep 2027 Index	98	Active
+99	NIFTY G-Sec Sep 2032 Index	NGSSEP32	NIFTY G-Sec Sep 2032 Index	99	Active
+100	NIFTY High Beta 50	NHB50	NIFTY High Beta 50	100	Active
+101	NIFTY Healthcare Index	NHCI	NIFTY Healthcare Index	101	Active
+102	NIFTY Housing	NHOUSE	NIFTY Housing	102	Active
+103	NIFTY India Corporate Group Index - Aditya Birla Group	NICGIABG	NIFTY India Corporate Group Index - Aditya Birla Group	103	Active
+104	NIFTY India Corporate Group Index - Mahindra Group	NICGIMG	NIFTY India Corporate Group Index - Mahindra Group	104	Active
+105	NIFTY India Corporate Group Index - Tata Group 25% Cap	NICGITD25	NIFTY India Corporate Group Index - Tata Group 25% Cap	105	Active
+106	NIFTY India Corporate Group Index - Tata Group	NICGITG	NIFTY India Corporate Group Index - Tata Group	106	Active
+107	Nifty India New Age Consumption	NINAC	NIFTY India New Age Consumption	107	Active
+108	NIFTY India Consumption	NINDCON	NIFTY India Consumption	108	Active
+109	NIFTY India Defence	NINDDEF	NIFTY India Defence	109	Active
+110	NIFTY India Digital	NINDDIG	NIFTY India Digital	110	Active
+111	NIFTY India Government Fully Accessible Route (FAR) Select 7 Bonds Index (INR)	NINDFAR7INR	NIFTY India Government Fully Accessible Route (FAR) Select 7 Bonds Index (INR)	111	Active
+112	NIFTY India Government Fully Accessible Route (FAR) Select 7 Bonds Index (USD)	NINDFAR7USD	NIFTY India Government Fully Accessible Route (FAR) Select 7 Bonds Index (USD)	112	Active
+113	NIFTY India Tourism	NINDIAT	NIFTY India Tourism	113	Active
+114	NIFTY India Manufacturing	NINDMAN	NIFTY India Manufacturing	114	Active
+115	NIFTY Infrastructure	NINFRA	NIFTY Infrastructure	115	Active
+116	NIFTY IPO	NIPO	NIFTY IPO	116	Active
+117	NIFTY INDIA SOVEREIGN GREEN BOND JAN 2028	NISGBJan2028	NIFTY India Sovereign Green Bond Jan 2028	117	Active
+118	NIFTY India Sovereign Green Bond Jan 2033	NISGBJan2033	NIFTY India Sovereign Green Bond Jan 2033	118	Active
+119	NIFTY IT	NIT	NIFTY IT	119	Active
+120	NIFTY LargeMidcap 250	NLM250	NIFTY LargeMidcap 250	120	Active
+121	NIFTY Low Volatility 50	NLV50	NIFTY Low Volatility 50	121	Active
+122	NIFTY Midcap 100	NMC100	NIFTY Midcap 100	122	Active
+123	NIFTY Midcap 150	NMC150	NIFTY Midcap 150	123	Active
+124	NIFTY Midcap150 Momentum 50	NMC150M50	NIFTY Midcap150 Momentum 50	124	Active
+125	NIFTY Midcap150 Quality 50	NMC150Q50	NIFTY Midcap150 Quality 50	125	Active
+126	NIFTY Midcap 50	NMC50	NIFTY Midcap 50	126	Active
+127	NIFTY Midcap Select	NMCSEL	NIFTY Midcap Select	127	Active
+128	NIFTY Media	NMEDIA	NIFTY Media	128	Active
+129	NIFTY Metal	NMETAL	NIFTY Metal	129	Active
+130	NIFTY Mahindra Group	NMGROUP	NIFTY Mahindra Group	130	Check
+131	NIFTY Microcap 250	NMICRO250	NIFTY Microcap 250	131	Active
+132	NIFTY Midcap Liquid 15	NML15	NIFTY Midcap Liquid 15	132	Active
+133	NIFTY MNC	NMNC	NIFTY MNC	133	Active
+134	NIFTY Mobility	NMOB	NIFTY Mobility	134	Active
+135	NIFTY MidSmallcap 400	NMS400	NIFTY MidSmallcap 400	135	Active
+136	NIFTY MidSmallcap400 Momentum Quality 100	NMS400MQ100	NIFTY MidSmallcap400 Momentum Quality 100	136	Active
+137	NIFTY MidSmall Healthcare	NMSHC	NIFTY MidSmall Healthcare	137	Active
+138	NIFTY MidSmall India Consumption	NMSIC	NIFTY MidSmall India Consumption	138	Active
+139	NIFTY MidSmall IT & Telecom	NMSIT	NIFTY MidSmall IT & Telecom	139	Active
+140	NIFTY MidSmall Financial Services	NMSSF	NIFTY MidSmall Financial Services	140	Active
+141	NIFTY Multi Asset - Equity : Debt : Arbitrage : Reits/Invits (50:20:20:10)	NMULTI50202010	NIFTY Multi Asset - Equity : Debt : Arbitrage : Reits/Invits (50:20:20:10)	141	Active
+142	NIFTY Multi Asset - Equity : Arbitrage : Reits/Invits (50:40:10)	NMULTI504010	NIFTY Multi Asset - Equity : Arbitrage : Reits/Invits (50:40:10)	142	Active
+143	NIFTY Next 50	NN50	NIFTY Next 50	143	Active
+144	NIFTY NonCyclical Consumer	NNCC	NIFTY Non-Cyclical Consumer	144	Active
+144	NIFTY Non-Cyclical Consumer	NNCC	NIFTY Non-Cyclical Consumer	144	Active
+145	NIFTY Oil & Gas	NOG	NIFTY Oil & Gas	145	Active
+146	NIFTY Private Bank	NPBANK	NIFTY Private Bank	146	Active
+147	NIFTY Pharma	NPHARMA	NIFTY Pharma	147	Active
+148	NIFTY PSE	NPSE	NIFTY PSE	148	Active
+149	NIFTY PSU Bond Plus SDL Apr 2026 50:50 Index	NPSUAPR265050	NIFTY PSU Bond Plus SDL Apr 2026 50:50 Index	149	Active
+150	NIFTY PSU Bond Plus SDL Apr 2027 50:50 Index	NPSUAPR275050	NIFTY PSU Bond Plus SDL Apr 2027 50:50 Index	150	Active
+151	NIFTY PSU Bank	NPSUBANK	NIFTY PSU Bank	151	Active
+152	NIFTY PSU Bond Plus SDL Sep 2027 40:60 Index	NPSUSEP274060	NIFTY PSU Bond Plus SDL Sep 2027 40:60 Index	152	Active
+153	NIFTY Quality LowVolatility 30	NQLV30	NIFTY Quality Low-Volatility 30	153	Active
+153	NIFTY Quality Low-Volatility 30	NQLV30	NIFTY Quality Low-Volatility 30	153	Active
+154	NIFTY Realty	NREALTY	NIFTY Realty	154	Active
+155	NIFTY REITs & InvITs	NREITINVIT	NIFTY REITs & InvITs	155	Active
+156	NIFTY Rural	NRURAL	NIFTY Rural	156	Active
+157	NIFTY Smallcap 100	NSC100	NIFTY Smallcap 100	157	Active
+158	NIFTY Smallcap 250	NSC250	NIFTY Smallcap 250	158	Active
+159	NIFTY Smallcap250 Momentum Quality 100	NSC250MQ100	NIFTY Smallcap250 Momentum Quality 100	159	Active
+160	NIFTY Smallcap250 Quality 50	NSC250Q50	NIFTY Smallcap250 Quality 50	160	Active
+161	NIFTY Smallcap 50	NSC50	NIFTY Smallcap 50	161	Active
+162	NIFTY SDL Plus Aaa PSU Bond Apr 2026 75:25 Index	NSDLAAPSUAPR267525	NIFTY SDL Plus Aaa PSU Bond Apr 2026 75:25 Index	162	Active
+163	NIFTY SDL Plus Aaa PSU Bond Apr 2028 75:25	NSDLAAPSUAPR287525	NIFTY SDL Plus Aaa PSU Bond Apr 2028 75:25	163	Active
+164	NIFTY SDL Plus Aaa PSU Bond Dec 2027 60:40 Index	NSDLAAPSUDEC276040	NIFTY SDL Plus Aaa PSU Bond Dec 2027 60:40 Index	164	Active
+165	NIFTY SDL Plus Aaa PSU Bond Jul 2028 60:40 Index	NSDLAAPSUJUL286040	NIFTY SDL Plus Aaa PSU Bond Jul 2028 60:40 Index	165	Active
+166	NIFTY SDL Plus Aaa PSU Bond Jul 2033 60:40 Index	NSDLAAPSUJUL336040	NIFTY SDL Plus Aaa PSU Bond Jul 2033 60:40 Index	166	Active
+167	NIFTY SDL Apr 2026 Top 20 Equal Weight Index	NSDLAPR26TOP20	NIFTY SDL Apr 2026 Top 20 Equal Weight Index	167	Active
+168	NIFTY SDL Apr 2027 Index	NSDLAPR27	NIFTY SDL Apr 2027 Index	168	Active
+169	NIFTY SDL Apr 2027 Top 12 Equal Weight Index	NSDLAPR27TOP12	NIFTY SDL Apr 2027 Top 12 Equal Weight Index	169	Active
+170	NIFTY SDL Apr 2032 Top 12 Equal Weight Index	NSDLAPR32TOP12	NIFTY SDL Apr 2032 Top 12 Equal Weight Index	170	Active
+171	NIFTY SDL Dec 2026 Index	NSDLDEC26	NIFTY SDL Dec 2026 Index	171	Active
+172	NIFTY SDL Dec 2028 Index	NSDLDEC28	NIFTY SDL Dec 2028 Index	172	Active
+173	NIFTY SDL Plus G-Sec Jun 2028 30:70 Index	NSDLGSECJUN283070	NIFTY SDL Plus G-Sec Jun 2028 30:70 Index	173	Active
+174	NIFTY SDL Plus G-Sec Jun 2028 70:30 Index	NSDLGSECJUN287030	NIFTY SDL Plus G-Sec Jun 2028 70:30 Index	174	Active
+175	NIFTY SDL Plus G-Sec Jun 2029 70:30 Index	NSDLGSECJUN297030	NIFTY SDL Plus G-Sec Jun 2029 70:30 Index	175	Active
+176	NIFTY SDL Plus G-Sec June 2027 40:60	NSDLGSECJUNE274060	NIFTY SDL Plus G-Sec June 2027 40:60	176	Active
+177	NIFTY SDL Plus G-Sec Sep 2027 50:50 Index	NSDLGSECSEP275050	NIFTY SDL Plus G-Sec Sep 2027 50:50 Index	177	Active
+178	NIFTY SDL Jul 2026 Index	NSDLJUL26	NIFTY SDL Jul 2026 Index	178	Active
+179	NIFTY SDL Jul 2028	NSDLJUL28	NIFTY SDL Jul 2028	179	Active
+180	NIFTY SDL Jul 2033 Index	NSDLJUL33	NIFTY SDL Jul 2033 Index	180	Active
+181	NIFTY SDL Jun 2027 Index	NSDLJUN27	NIFTY SDL Jun 2027 Index	181	Active
+181	NIFTY SDL JUN 2027 INDEX 	NSDLJUN27	NIFTY SDL Jun 2027 Index	181	Active
+182	NIFTY SDL June 2028	NSDLJUNE28	NIFTY SDL June 2028	182	Active
+183	NIFTY SDL Oct 2026 Index	NSDLOCT26	NIFTY SDL Oct 2026 Index	183	Active
+184	NIFTY SDL Plus PSU Bond Sep 2026 60:40 Index	NSDLPSUSEP266040	NIFTY SDL Plus PSU Bond Sep 2026 60:40 Index	184	Active
+185	NIFTY SDL Sep 2025 Index	NSDLSEP25	NIFTY SDL Sep 2025 Index	185	Active
+186	NIFTY SDL Sep 2026 Index	NSDLSEP26	NIFTY SDL Sep 2026 Index	186	Active
+187	NIFTY SDL Sep 2026 V1 Index	NSDLSEP26V1	NIFTY SDL Sep 2026 V1 Index	187	Active
+188	NIFTY SDL Sep 2027 Index	NSDLSEP27	NIFTY SDL Sep 2027 Index	188	Active
+189	NIFTY Shariah 25	NSHARIAH25	NIFTY Shariah 25	189	Active
+190	NIFTY SME Emerge	NSMEE	NIFTY SME Emerge	190	Active
+191	NIFTY Services Sector	NSS	NIFTY Services Sector	191	Active
+192	Nifty Top 15 Equal Weight	NT15EW	NIFTY Top 15 Equal Weight	192	Active
+193	Nifty Top 20 Equal Weight	NT20EW	NIFTY Top 20 Equal Weight	193	Active
+194	NIFTY Top 10 Equal Weight	NTG25CAP	NIFTY Top 10 Equal Weight	194	Active
+195	NIFTY Tata Group	NTGROUP	NIFTY Tata Group	195	Check
+196	NIFTY Tata Group 25% Cap	NTGROUP25	NIFTY Tata Group 25% Cap	196	Check
+197	NIFTY Transportation & Logistics	NTL	NIFTY Transportation & Logistics	197	Active
+198	NIFTY Total Market	NTM	NIFTY Total Market	198	Active
+199	BSE 100	S&PBSE100	S&P BSE 100	199	Active
+199	S&P BSE 100	S&PBSE100	S&P BSE 100	199	Active
+200	BSE 100 ESG Index	S&PBSE100ESG	S&P BSE 100 ESG Index	200	Active
+200	S&P BSE 100 ESG Index	S&PBSE100ESG	S&P BSE 100 ESG Index	200	Active
+201	BSE 100 LargeCap TMC Index	S&PBSE100LCTMC	S&P BSE 100 LargeCap TMC Index	201	Active
+201	S&P BSE 100 LargeCap TMC Index	S&PBSE100LCTMC	S&P BSE 100 LargeCap TMC Index	201	Active
+202	BSE 150 MidCap Index	S&PBSE150MIDCAP	S&P BSE 150 MidCap Index	202	Active
+202	S&P BSE 150 MidCap Index	S&PBSE150MIDCAP	S&P BSE 150 MidCap Index	202	Active
+203	BSE 200	S&PBSE200	S&P BSE 200	203	Active
+203	S&P BSE 200	S&PBSE200	S&P BSE 200	203	Active
+204	S&P BSE 250 LargeMidCap Index	S&PBSE250LMC	S&P BSE 250 LargeMidCap Index	204	Data no longer available
+205	BSE 250 LargeMidCap Index	S&PBSE250LMC6535	S&P BSE 250 LargeMidCap 65 35 Index	205	Active
+205	S&P BSE 250 LargeMidCap 65 35 Index	S&PBSE250LMC6535	S&P BSE 250 LargeMidCap 65 35 Index	205	Active
+206	BSE 250 SmallCap Index	S&PBSE250SC	S&P BSE 250 SmallCap Index	206	Active
+206	S&P BSE 250 SmallCap Index	S&PBSE250SC	S&P BSE 250 SmallCap Index	206	Active
+207	BSE 400 MidSmallCap Index	S&PBSE400MSC	S&P BSE 400 MidSmallCap Index	207	Active
+207	S&P BSE 400 MidSmallCap Index	S&PBSE400MSC	S&P BSE 400 MidSmallCap Index	207	Active
+208	BSE 500	S&PBSE500	S&P BSE 500	208	Active
+208	S&P BSE 500	S&PBSE500	S&P BSE 500	208	Active
+209	BSE 500 Shariah	S&PBSE500SHARIAH	S&P BSE 500 Shariah	209	Active
+209	S&P BSE 500 Shariah	S&PBSE500SHARIAH	S&P BSE 500 Shariah	209	Active
+210	BSE AllCap	S&PBSEALLCAP	S&P BSE AllCap	210	Active
+210	S&P BSE AllCap	S&PBSEALLCAP	S&P BSE AllCap	210	Active
+211	S&P BSE Arbitrage Rate Index (INR)	S&PBSEARIINR	S&P BSE Arbitrage Rate Index (INR)	211	Data no longer available
+212	BSE AUTO	S&PBSEAUTO	S&P BSE Auto	212	Active
+212	S&P BSE Auto	S&PBSEAUTO	S&P BSE Auto	212	Active
+213	BSE BANKEX	S&PBSEBANKEX	S&P BSE BankEx	213	Active
+213	S&P BSE BankEx	S&PBSEBANKEX	S&P BSE BankEx	213	Active
+214	BSE Bharat 22 Index	S&PBSEBHARAT22	S&P BSE Bharat 22 Index	214	Active
+214	S&P BSE Bharat 22 Index	S&PBSEBHARAT22	S&P BSE Bharat 22 Index	214	Active
+215	BSE CAPITAL GOODS	S&PBSECAPGOODS	S&P BSE Capital Goods	215	Active
+215	S&P BSE Capital Goods	S&PBSECAPGOODS	S&P BSE Capital Goods	215	Active
+216	BSE CARBONEX	S&PBSECARBONEX	S&P BSE CarbonEx	216	Data no longer available
+216	S&P BSE CarbonEx	S&PBSECARBONEX	S&P BSE CarbonEx	216	Data no longer available
+217	S&P BSE India Corporate Bond Index	S&PBSECBI	S&P BSE India Corporate Bond Index	217	Data no longer available
+218	BSE CAPITAL MARKETS & INSURANCE	S&PBSECMI	S&P BSE Capital Markets & Insurance	218	Active
+219	BSE Commodities	S&PBSECOMMODITIES	S&P BSE Commodities	219	Active
+219	S&P BSE Commodities	S&PBSECOMMODITIES	S&P BSE Commodities	219	Active
+220	BSE Consumer Discretionary	S&PBSECONSDISC	S&P BSE Consumer Discretionary	220	Active
+220	S&P BSE Consumer Discretionary	S&PBSECONSDISC	S&P BSE Consumer Discretionary	220	Active
+221	BSE CONSUMER DURABLES	S&PBSECONSDUR	S&P BSE Consumer Durables	221	Active
+221	S&P BSE Consumer Durables	S&PBSECONSDUR	S&P BSE Consumer Durables	221	Active
+222	BSE CPSE	S&PBSECPSE	S&P BSE CPSE	222	Active
+222	S&P BSE CPSE	S&PBSECPSE	S&P BSE CPSE	222	Active
+223	BSE Diversified Financials Revenue Growth Index	S&PBSEDFREVGR	S&P BSE Diversified Financials Revenue Growth Index	223	Active
+223	S&P BSE Diversified Financials Revenue Growth Index	S&PBSEDFREVGR	S&P BSE Diversified Financials Revenue Growth Index	223	Active
+224	BSE Dividend Stability Index	S&PBSEDIVST	S&P BSE Dividend Stability Index	224	Active
+224	S&P BSE Dividend Stability Index	S&PBSEDIVST	S&P BSE Dividend Stability Index	224	Active
+225	BSE DOLLEX 100	S&PBSEDOL100	S&P BSE DollEx 100	225	Active
+225	S&P BSE DollEx 100	S&PBSEDOL100	S&P BSE DollEx 100	225	Active
+226	BSE DOLLEX 200	S&PBSEDOL200	S&P BSE DollEx 200	226	Active
+226	S&P BSE DollEx 200	S&PBSEDOL200	S&P BSE DollEx 200	226	Active
+227	BSE DOLLEX 30	S&PBSEDOL30	S&P BSE DollEx 30	227	Active
+227	S&P BSE DollEx 30	S&PBSEDOL30	S&P BSE DollEx 30	227	Active
+228	BSE Momentum Index	S&PBSEEMOM	S&P BSE Momentum Index	228	Active
+228	S&P BSE Momentum Index	S&PBSEEMOM	S&P BSE Momentum Index	228	Active
+229	BSE Energy	S&PBSEENERGY	S&P BSE Energy	229	Active
+229	S&P BSE Energy	S&PBSEENERGY	S&P BSE Energy	229	Active
+230	BSE Enhanced Value Index	S&PBSEENHVAL	S&P BSE Enhanced Value Index	230	Active
+230	S&P BSE Enhanced Value Index	S&PBSEENHVAL	S&P BSE Enhanced Value Index	230	Active
+231	BSE 200 EQUAL WEIGHT INDEX	S&PBSEEWI	S&P BSE Equal Weight Index	231	Active
+232	S&P BSE India Financials Bond Index	S&PBSEFBI	S&P BSE India Financials Bond Index	232	Data no longer available
+233	BSE Financials Ex-Banks 30 Index	S&PBSEFExB30	S&P BSE Financials Ex-Banks 30 Index	233	Active
+233	BSE Financials Ex-Banks 30 Index	S&PBSEFExB30	S&P BSE Financials Ex-Banks 30 Index	233	Active
+233	BSE Financials Ex-Banks 30 Index 	S&PBSEFExB30	S&P BSE Financials Ex-Banks 30 Index	233	Active
+233	S&P BSE Financials Ex-Banks 30 Index	S&PBSEFExB30	S&P BSE Financials Ex-Banks 30 Index	233	Active
+234	BSE Financial Services	S&PBSEFINSERV	S&P BSE Financial Services	234	Active
+234	S&P BSE Financial Services	S&PBSEFINSERV	S&P BSE Financial Services	234	Active
+235	BSE Focused IT 	S&PBSEFIT	S&P BSE Focused IT	235	Active
+236	BSE Fast Moving Consumer Goods	S&PBSEFMCG	S&P BSE Fast Moving Consumer Goods	236	Active
+236	S&P BSE Fast Moving Consumer Goods	S&PBSEFMCG	S&P BSE Fast Moving Consumer Goods	236	Active
+237	BSE FOCUSED MIDCAP	S&PBSEFMCP	S&P BSE Focused MidCap	237	Active
+238	BSE GREENEX	S&PBSEGREENEX	S&P BSE GreenEx	238	Data no longer available
+238	S&P BSE GreenEx	S&PBSEGREENEX	S&P BSE GreenEx	238	Active
+239	BSE Healthcare	S&PBSEHEALTHCARE	S&P BSE Healthcare	239	Active
+239	S&P BSE Healthcare	S&PBSEHEALTHCARE	S&P BSE Healthcare	239	Active
+240	BSE Housing Index	S&PBSEHOUSING	S&P BSE Housing Index	240	Active
+240	S&P BSE Housing Index	S&PBSEHOUSING	S&P BSE Housing Index	240	Active
+241	BSE India 10 Year Sovereign Bond	S&PBSEI10YSB	S&P BSE India 10 YR Sovereign Bond	241	Active
+241	BSE India 10 Year Sovereign Bond	S&PBSEI10YSB	S&P BSE India 10 YR Sovereign Bond	241	Active
+241	BSE India 10 Year Sovereign Bond 	S&PBSEI10YSB	S&P BSE India 10 YR Sovereign Bond	241	Active
+241	S&P BSE India 10 Year Sovereign Bond	S&PBSEI10YSB	S&P BSE India 10 YR Sovereign Bond	241	Active
+241	S&P BSE India 10 YR Sovereign Bond	S&PBSEI10YSB	S&P BSE India 10 YR Sovereign Bond	241	Active
+242	S&P BSE India Agency Bond Index	S&PBSEIABI	S&P BSE India Agency Bond Index	242	Data no longer available
+243	S&P BSE India Bond Index	S&PBSEIBI	S&P BSE India Bond Index	243	Data no longer available
+244	BSE INTERNET ECONOMY	S&PBSEIE	S&P BSE Internet Economy	244	Active
+245	S&P BSE India Government Bill Index	S&PBSEIGBI	S&P BSE India Government Bill Index	245	Data no longer available
+246	S&P BSE India Government Bond Index	S&PBSEIGovBI	S&P BSE India Government Bond Index	246	Data no longer available
+247	S&P BSE India Industrials Bond Index	S&PBSEIIBI	S&P BSE India Industrials Bond Index	247	Data no longer available
+248	BSE India Manufacturing Index	S&PBSEINDMNF	S&P BSE India Manufacturing Index	248	Active
+248	S&P BSE India Manufacturing Index	S&PBSEINDMNF	S&P BSE India Manufacturing Index	248	Active
+249	BSE Industrials	S&PBSEINDS	S&P BSE Industrials	249	Active
+249	S&P BSE Industrials	S&PBSEINDS	S&P BSE Industrials	249	Active
+250	BSE India Infrastructure Index	S&PBSEINFRAI	S&P BSE India Infrastructure Index	250	Active
+250	S&P BSE India Infrastructure Index	S&PBSEINFRAI	S&P BSE India Infrastructure Index	250	Active
+251	BSE IPO	S&PBSEIPO	S&P BSE IPO	251	Active
+251	S&P BSE IPO	S&PBSEIPO	S&P BSE IPO	251	Active
+252	S&P BSE India Services Bond Index	S&PBSEISBI	S&P BSE India Services Bond Index	252	Data no longer available
+253	BSE Information Technology	S&PBSEIT	S&P BSE Information Technology	253	Active
+253	S&P BSE Information Technology	S&PBSEIT	S&P BSE Information Technology	253	Active
+254	S&P BSE India Utilities Bond Index	S&PBSEIUBI	S&P BSE India Utilities Bond Index	254	Data no longer available
+255	BSE LargeCap	S&PBSELCAP	S&P BSE LargeCap	255	Active
+255	S&P BSE LargeCap	S&PBSELCAP	S&P BSE LargeCap	255	Active
+256	S&P BSE Liquid Rate Index	S&PBSELIQRATE	S&P BSE Liquid Rate Index	256	Data no longer available
+257	BSE LargeMidCap	S&PBSELMCAP	S&P BSE LargeMidCap	257	Active
+257	S&P BSE LargeMidCap	S&PBSELMCAP	S&P BSE LargeMidCap	257	Active
+258	BSE Low Volatility Index	S&PBSELOWVOL	S&P BSE Low Volatility Index	258	Active
+258	S&P BSE Low Volatility Index	S&PBSELOWVOL	S&P BSE Low Volatility Index	258	Active
+259	BSE METAL	S&PBSEMETAL	S&P BSE Metal	259	Active
+259	S&P BSE Metal	S&PBSEMETAL	S&P BSE Metal	259	Active
+260	BSE MidCap	S&PBSEMIDCAP	S&P BSE MidCap	260	Active
+260	S&P BSE MidCap	S&PBSEMIDCAP	S&P BSE MidCap	260	Active
+261	BSE MidCap Select Index	S&PBSEMIDCAPSEL	S&P BSE MidCap Select Index	261	Active
+261	S&P BSE MidCap Select Index	S&PBSEMIDCAPSEL	S&P BSE MidCap Select Index	261	Active
+262	BSE MidSmallCap	S&PBSEMSCAP	S&P BSE MidSmallCap	262	Active
+262	S&P BSE MidSmallCap	S&PBSEMSCAP	S&P BSE MidSmallCap	262	Active
+263	BSE OIL & GAS	S&PBSEOILGAS	S&P BSE Oil & Gas	263	Active
+263	S&P BSE Oil & Gas	S&PBSEOILGAS	S&P BSE Oil & Gas	263	Active
+264	BSE Private Banks Index	S&PBSEPBANKS	S&P BSE Private Banks Index	264	Active
+264	S&P BSE Private Banks Index	S&PBSEPBANKS	S&P BSE Private Banks Index	264	Active
+265	S&P BSE India Provincial Bond Index	S&PBSEPBI	S&P BSE India Provincial Bond Index	265	Data no longer available
+266	BSE PREMIUM CONSUMPTION	S&PBSEPC	S&P BSE Premium Consumption	266	Active
+267	BSE POWER & ENERGY	S&PBSEPE	S&P BSE Power & Energy	267	Active
+268	BSE POWER	S&PBSEPOWER	S&P BSE Power	268	Active
+268	S&P BSE Power	S&PBSEPOWER	S&P BSE Power	268	Active
+269	BSE PSU	S&PBSEPSU	S&P BSE PSU	269	Active
+269	S&P BSE PSU	S&PBSEPSU	S&P BSE PSU	269	Active
+270	BSE Quality Index	S&PBSEQUALITY	S&P BSE Quality Index	270	Active
+270	BSE Quality Index	S&PBSEQUALITY	S&P BSE Quality Index	270	Active
+270	BSE Quality Index 	S&PBSEQUALITY	S&P BSE Quality Index	270	Active
+270	S&P BSE Quality Index	S&PBSEQUALITY	S&P BSE Quality Index	270	Active
+271	BSE REALTY	S&PBSEREALTY	S&P BSE Realty	271	Active
+271	S&P BSE Realty	S&PBSEREALTY	S&P BSE Realty	271	Active
+272	BSE REIT & InvIT Index (INR)	S&PBSERIINR	S&P BSE REIT & InvIT Index (INR)	272	Active
+272	S&P BSE REIT & InvIT Index (INR)	S&PBSERIINR	S&P BSE REIT & InvIT Index (INR)	272	Active
+273	BSE SENSEX 50	S&PBSES50	S&P BSE Sensex 50	273	Active
+273	S&P BSE Sensex 50	S&PBSES50	S&P BSE Sensex 50	273	Active
+274	BSE SENSEX 50 TMC	S&PBSES50TMC	S&P BSE Sensex 50 TMC	274	Active
+274	S&P BSE Sensex 50 TMC	S&PBSES50TMC	S&P BSE Sensex 50 TMC	274	Active
+275	BSE SENSEX SIXTY	S&PBSES60	S&P BSE Sensex Sixty	275	Active
+276	BSE SENSEX SIXTY 65:35	S&PBSES606035	S&P BSE Sensex Sixty 65:35	276	Active
+277	BSE SELECT BUSINESS GROUPS	S&PBSESBG	S&P BSE Select Business Groups	277	Active
+278	BSE SmallCap	S&PBSESCAP	S&P BSE SmallCap	278	Active
+278	S&P BSE SmallCap	S&PBSESCAP	S&P BSE SmallCap	278	Active
+279	BSE SmallCap Select Index	S&PBSESCAPSEL	S&P BSE SmallCap Select Index	279	Active
+279	S&P BSE SmallCap Select Index	S&PBSESCAPSEL	S&P BSE SmallCap Select Index	279	Active
+280	BSE SENSEX	S&PBSESENSEX	S&P BSE Sensex	280	Active
+280	S&P BSE Sensex	S&PBSESENSEX	S&P BSE Sensex	280	Active
+281	BSE Services	S&PBSESERVICES	S&P BSE Services	281	Active
+281	S&P BSE Services	S&PBSESERVICES	S&P BSE Services	281	Active
+282	BSE SME IPO	S&PBSESMEIPO	S&P BSE SME IPO	282	Active
+282	S&P BSE SME IPO	S&PBSESMEIPO	S&P BSE SME IPO	282	Active
+283	BSE SENSEX NEXT 30	S&PBSESN30	S&P BSE Sensex Next 30	283	Active
+283	S&P BSE Sensex Next 30	S&PBSESN30	S&P BSE Sensex Next 30	283	Active
+284	BSE SENSEX Next 50	S&PBSESN50	S&P BSE Sensex Next 50	284	Active
+284	S&P BSE Sensex Next 50	S&PBSESN50	S&P BSE Sensex Next 50	284	Active
+285	BSE SENSEX Next 50 TMC	S&PBSESN50TMC	S&P BSE Sensex Next 50 TMC	285	Active
+285	S&P BSE Sensex Next 50 TMC	S&PBSESN50TMC	S&P BSE Sensex Next 50 TMC	285	Active
+286	S&P BSE India Sovereign Bond Index	S&PBSESovBI	S&P BSE India Sovereign Bond Index	286	Data no longer available
+287	BSE TECK	S&PBSETECK	S&P BSE Teck	287	Active
+287	S&P BSE Teck	S&PBSETECK	S&P BSE Teck	287	Active
+288	BSE Telecommunication	S&PBSETELECOM	S&P BSE Telecommunication	288	Active
+288	S&P BSE Telecommunication	S&PBSETELECOM	S&P BSE Telecommunication	288	Active
+289	BSE Utilities	S&PBSEUT	S&P BSE Utilities	289	Active
+289	S&P BSE Utilities	S&PBSEUT	S&P BSE Utilities	289	Active
+290	BSE SENSEX EQUAL WEIGHT	S&PBSESEW	S&P BSE Sensex Equal Weight 	290	Active
+291	Nifty India Select 5 Corporate Groups (MAATR)	NIS5CG	NIFTY India Select 5 Corportae Groups (MAATR)	291	Active
+292	BSE LIQUID RATE INDEX	S&PBSELIQRATE	S&P BSE Liquid Rate Index	292	Active
+293	S&P BSE Sensex Sixty	S&PBSES60	S&P BSE Sensex Sixty	293	Active
+294	S&P BSE Sensex Sixty 65:35	S&PBSES606035	S&P BSE Sensex Sixty 65:35	294	Active
+295	S&P BSE Power & Energy	S&PBSEPE	S&P BSE Power & Energy	295	Active
+296	S&P BSE Equal Weight Index	S&PBSEEWI	S&P BSE Equal Weight Index	296	Active
+297	S&P BSE Internet Economy	S&PBSEIE	S&P BSE Internet Economy	297	Active
+298	S&P BSE Capital Markets & Insurance	S&PBSECMI	S&P BSE Capital Markets & Insurance	298	Active
+299	S&P BSE Focused IT	S&PBSEFIT	S&P BSE Focused IT	299	Active
+300	S&P BSE Premium Consumption	S&PBSEPC	S&P BSE Premium Consumption	300	Active
+301	S&P BSE Focused MidCap	S&PBSEFMCP	S&P BSE Focused MidCap	301	Active
+302	S&P BSE Select Business Groups	S&PBSESBG	S&P BSE Select Business Groups	302	Active
+303	S&P BSE SELECT IPO	S&PBSESIPO	S&P BSE Select IPO	303	Active
+304	NIFTY India Select 5 Corportae Groups (MAATR)	NIS5CG	NIFTY India Select 5 Corportae Groups (MAATR)	304	Active
+305	NIFTY India Railways PSU	NIRPSU	NIFTY India Railways PSU	305	Active
+306	BSE SELECT IPO	S&PBSESIPO	S&P BSE Select IPO	306	Active
+307	Nifty500 Low Volatility 50	N500LV50	NIFTY 500 Low Volatility 50	307	Active
+308	Nifty500 Quality 50	N500Q50	NIFTY 500 Quality 50	308	Active
+309	Nifty500 Multifactor MQVLv 50	N500MMQVLv50	NIFTY 500 Multifactor MQVLv 50	309	Active
+310	Nifty India Internet & E-Commerce	MII&EC	NIFTY India Internet & E-Commerce	310	Active
+311	Nifty Chemicals	NCHEM	NIFTY Chemicals	311	Active
+312	BSE PSU BANK	S&PBSEPB	S&P BSE PSU Bank	312	Active
+313	BSE INDIA SECTOR LEADERS	S&PBSEISL	S&P BSE India Sector Leaders	313	Active
+314	BSE 1000	S&PBSE1000	S&P BSE 1000	314	Active
+315	BSE NEXT 500	S&PBSEN500	S&P BSE Next 500	315	Active
+316	BSE 250 MICROCAP	S&PBSE250MC	S&P BSE 250 Microcap	316	Active
+317	BSE Next 250 MICROCAP	S&PBSEN250MC	S&P BSE Next 250 Microcap	317	Active
+318	BSE 1000 MULTICAP EQUAL SIZE WEIGHTED (25%)	S&PBSE1000MESW	S&P BSE 1000 Multicap Equal Size Weighted (25%)	318	Active
+319	NIFTY AAA BOND PLUS G-SEC MAR 2035 30:70	NAAABPGMar20235	NIFTY AAA Bond Plus G-SEC Mar 2035 30:70	319	Active
+320	Nifty500 Flexicap Quality 30	N500FQ30	NIFTY 500 FlexiCap Quality 30	320	Active
+321	BSE India 150	S&PBSEIND150	S&P BSE India 150	321	Active
+322	NIFTY AAA FINANCIAL SERVICES BOND MAR 2028	NAAAFSBMar2028	NIFTY AAA Financial Services Bond March 2028	322	Active
+323	Nifty Waves	NWAVES	NIFTY Waves	323	Active
+324	Nifty India Internet	NINTERNET	NIFTY India Internet	324	Active
+325	NIFTY AAA FINANCIAL SERVICES BOND PLUS G-SEC APR 2028 90:10	NAAAFSBAPR20289010	NIFTY AAA Financial Services Bond Plus G-Sec April 2028 90:10	325	Active
+326	NIFTY AAA FINANCIAL SERVICES BOND PLUS G-SEC APR 2027 90:10	NAAAFSBAPR20279010	NIFTY AAA Financial Services Bond Plus G-Sec April 2027 90:10	326	Active
+327	BSE Dividend Leaders 50	S&PBSEDL50	S&P BSE Dividend Leaders 50	327	Active
+328	BSE 500 Dividend Leaders 50	S&PBSE500DL50	S&P BSE 500 Dividend Leaders 50	328	Active
+329	BSE 500 Enhanced Value 50	S&PBSE500EV50	S&P BSE 500 Enhanced Value	329	Active
+330	BSE 500 Quality 50	S&PBSE500Q50	S&P BSE 500 Quality 50	330	Active
+331	BSE 500 Low Volatility 50	S&PBSE500LV50	S&P BSE 500 500 Low Volatility 50	331	Active
+332	BSE 500 Momentum 50 	S&PBSE500M50	S&P BSE 500 Momentum 50	332	Active
+333	Nifty India Infrastructure & Logistics	NIIL	NIFTY India Infrastructure & Logistics	333	Active
+334	NIFTY FINANCIAL SERVICES 3 TO 6 MONTHS DEBT	NFS3TO6MD	NIFTY Financial Services 3 To 6 Months Debt	334	Active
+335	NIFTY FINANCIAL SERVICES 9 TO 12 MONTHS DEBT	NFS9TO12MD	NIFTY Financial Services 9 To 12 Months Debt	335	Active
+336	Nifty500 Healthcare	N500H	Nifty500 Healthcare	336	Active
+337	BSE Insurance	S&PBSEI	S&P BSE Insurance	337	Active
+338	Nifty Total Market Momentum Quality 50	NTMMQ50	Nifty Total Market Momentum Quality 50	338	Active
+339	Nifty India FPI 150	NIFPI150	Nifty India FPI 150	339	Active
+340	BSE India Defence 	S&PBSEID	S&P BSE India Defence	340	Active
+341	BSE CAPITAL MARKETS	S&PBSECM	S&P BSE Capital Markets	341	Active
+342	Nifty Conglomerate 50	NCM50	Nifty Conglomerate 50	342	Active
+343	BSE Hospitals	S&PBSEH	S&P BSE Hospitals	343	Active
+344	BSE Multicap Consumption (50:30:20)	S&PBSEMC503020	S&P BSE Multicap Consumption (50:30:20)	344	Active
+345	BSE Top 10 Banks	S&PBSET10B	S&P BSE Top 10 Banks	345	Active
+346	BSE LARGECAP 100 MOMENTUM 30	S&PBSEL100M30	S&P Bse Largecap 100 Momentum 30	346	Active
+347	BSE LARGECAP 100 LOW VOLATILITY 30	S&PBSEL100LV30	S&P Bse Largecap 100 Low Volatility 30	347	Active
+348	BSE LARGECAP 100 ENHANCED VALUE 30	S&PBSEL100EV30	S&P Bse Largecap 100 Enhanced Value 30	348	Active
+349	BSE LARGECAP 100 QUALITY 30	S&PBSEL100Q30	S&P Bse Largecap 100 Quality 30	349	Active
