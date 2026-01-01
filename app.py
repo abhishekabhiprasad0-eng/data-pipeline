@@ -1,4 +1,4 @@
-import pandas as pd
+import csv
 from datetime import datetime
 from pathlib import Path
 from flask import Flask, request, send_file, jsonify
@@ -7,42 +7,69 @@ app = Flask(__name__)
 
 BASE = Path("data")
 OUT  = Path("outputs")
+
 BASE.mkdir(exist_ok=True)
 OUT.mkdir(exist_ok=True)
 
-MASTER_FILE = BASE / "Master file.xlsx"
+# ----------------- MASTER FILE PATHS -----------------
 
-@app.route("/register", methods=["POST"])
-def register():
-    incoming_file = request.files["file"]
-    incoming_path = BASE / "incoming.xlsx"
-    incoming_file.save(incoming_path)
+EQUITY_MASTER  = BASE / "equity_master.csv"
+MF_MASTER      = BASE / "mf_master.csv"
+INDICES_MASTER = BASE / "indices_master.csv"
 
-    master = pd.read_excel(MASTER_FILE)
-    incoming = pd.read_excel(incoming_path)
+# ----------------- INITIALIZE MASTER FILES -----------------
 
-    key_cols = ["ISIN", "Code", "Series"]
-    master["KEY"] = master[key_cols].astype(str).agg("|".join, axis=1)
-    incoming["KEY"] = incoming[key_cols].astype(str).agg("|".join, axis=1)
+def init_master(file_path, headers):
+    if not file_path.exists():
+        with open(file_path, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(headers)
 
-    new_rows = incoming[~incoming["KEY"].isin(master["KEY"])].copy()
+init_master(EQUITY_MASTER,  ["isin", "symbol", "series"])
+init_master(MF_MASTER,      ["scheme_code", "isin"])
+init_master(INDICES_MASTER, ["index_code", "index_name"])
 
-    if not new_rows.empty:
-        new_rows["Date Created"] = datetime.now().strftime("%d-%m-%Y")
-        new_rows["Created in system"] = "Y"
-        new_rows["Is active"] = "Y"
+# ----------------- CORE LOGIC -----------------
 
-        new_rows = new_rows[master.columns.drop("KEY")]
-        master = pd.concat([master.drop(columns="KEY"), new_rows], ignore_index=True)
-        master.to_excel(MASTER_FILE, index=False)
+def process_keys(records, master_file, fields):
+    existing = set()
 
-        out_file = OUT / f"New_Securities_{datetime.now():%d%m%Y}.csv"
-        new_rows.to_csv(out_file, index=False)
+    with open(master_file, newline="", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            key = tuple(row[field] for field in fields)
+            existing.add(key)
 
-        return send_file(out_file)
+    new_rows = []
+    for r in records:
+        key = tuple(r[field] for field in fields)
+        if key not in existing:
+            new_rows.append(r)
+            existing.add(key)
 
-    return "No new securities found"
+    if new_rows:
+        with open(master_file, "a", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fields)
+            for r in new_rows:
+                writer.writerow({k: r[k] for k in fields})
 
+    return new_rows
+
+# ----------------- API ENDPOINTS -----------------
+
+@app.route("/check-securities", methods=["POST"])
+def check_securities():
+    payload = request.json
+
+    new_equity = process_keys(payload.get("equity", []),  EQUITY_MASTER,  ["isin", "symbol", "series"])
+    new_mf     = process_keys(payload.get("mf", []),      MF_MASTER,      ["scheme_code", "isin"])
+    new_index  = process_keys(payload.get("indices", []), INDICES_MASTER, ["index_code", "index_name"])
+
+    return jsonify({
+        "new_equity": new_equity,
+        "new_mf": new_mf,
+        "new_indices": new_index
+    })
 
 @app.route("/upload", methods=["POST"])
 def upload():
@@ -51,10 +78,11 @@ def upload():
     file.save(path)
     return jsonify({"download_url": f"/download/{file.filename}"})
 
-
 @app.route("/download/<name>")
 def download(name):
     return send_file(OUT / name, as_attachment=True)
 
+# ----------------- SERVER -----------------
 
-app.run(host="0.0.0.0", port=10000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000)
