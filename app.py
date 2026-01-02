@@ -5,6 +5,10 @@ from pathlib import Path
 from flask import Flask, request, jsonify, send_file, abort
 from flask_cors import CORS
 
+# =========================
+# 🚀 APP INITIALIZATION
+# =========================
+
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}}, allow_headers=["Content-Type", "X-AGENT-KEY"])
 
@@ -71,7 +75,7 @@ def process_keys(records, master_file, key_map):
 
     new_rows = []
     for r in records:
-        key = tuple(str(r[k]).strip() for k in key_map)
+        key = tuple(str(r.get(k, "")).strip() for k in key_map)
         if key not in existing:
             new_rows.append(r)
             existing.add(key)
@@ -84,11 +88,17 @@ def process_keys(records, master_file, key_map):
 
         for r in new_rows:
             row = {col: "" for col in fieldnames}
+
             for k, col in key_map.items():
-                row[col] = r[k]
-            row["Date Created"] = datetime.now().strftime("%d-%m-%Y")
-            row["Created in system"] = "Y"
-            row["Is active"] = "Y"
+                row[col] = r.get(k, "")
+
+            if "Date Created" in fieldnames:
+                row["Date Created"] = datetime.now().strftime("%d-%m-%Y")
+            if "Created in system" in fieldnames:
+                row["Created in system"] = "Y"
+            if "Is active" in fieldnames:
+                row["Is active"] = "Y"
+
             writer.writerow(row)
 
     return new_rows
@@ -142,7 +152,7 @@ def download(name):
     return send_file(OUT / name, as_attachment=True)
 
 # =========================
-# 🚀 SERVER
+# 🏁 SERVER
 # =========================
 
 if __name__ == "__main__":
