@@ -3,8 +3,10 @@ import os
 from datetime import datetime
 from pathlib import Path
 from flask import Flask, request, jsonify, send_file, abort
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}}, allow_headers=["Content-Type", "X-AGENT-KEY"])
 
 # =========================
 # 🔐 AGENT AUTHENTICATION
