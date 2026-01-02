@@ -5,6 +5,10 @@ from flask import Flask, request, jsonify, send_file
 
 app = Flask(__name__)
 
+@app.route("/", methods=["GET"])
+def health():
+    return jsonify({"status": "ok", "service": "data-pipeline"}), 200
+
 DATA = Path("data")
 OUT  = Path("outputs")
 DATA.mkdir(exist_ok=True)
