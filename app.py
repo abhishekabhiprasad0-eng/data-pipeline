@@ -70,7 +70,7 @@ def process_keys(records, master_file, key_map):
 
         existing = set()
         for row in reader:
-            key = tuple(row[key_map[k]].strip() for k in key_map)
+            key = tuple(str(row.get(key_map[k], "")).strip() for k in key_map)
             existing.add(key)
 
     new_rows = []
