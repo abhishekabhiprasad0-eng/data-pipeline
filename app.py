@@ -6,7 +6,11 @@ from flask import Flask, request, jsonify, send_file, abort
 app = Flask(__name__)
 
 @app.route("/", methods=["GET"])
-def health():
+def root():
+    return jsonify({"status": "ok", "service": "data-pipeline"}), 200
+
+@app.route("/health", methods=["GET"])
+def health_check():
     return jsonify({"status": "ok", "service": "data-pipeline"}), 200
 
 DATA = Path("data")
