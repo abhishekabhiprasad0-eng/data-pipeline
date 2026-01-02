@@ -1,9 +1,25 @@
 import csv
+import os
 from datetime import datetime
 from pathlib import Path
 from flask import Flask, request, jsonify, send_file, abort
 
 app = Flask(__name__)
+
+# =========================
+# 🔐 AGENT AUTHENTICATION
+# =========================
+
+AGENT_KEY = os.environ.get("FIN_AGENT_API_KEY")
+
+def verify_agent(req):
+    key = req.headers.get("X-AGENT-KEY")
+    if key != AGENT_KEY:
+        abort(401, "Unauthorized agent")
+
+# =========================
+# 🩺 HEALTH ENDPOINTS
+# =========================
 
 @app.route("/", methods=["GET"])
 def root():
@@ -12,6 +28,10 @@ def root():
 @app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"status": "ok", "service": "data-pipeline"}), 200
+
+# =========================
+# 🗂 FILE SYSTEM SETUP
+# =========================
 
 DATA = Path("data")
 OUT  = Path("outputs")
@@ -23,8 +43,9 @@ EQUITY_MASTER  = DATA / "Equity Master_System.csv"
 MF_MASTER      = DATA / "MF Master_System.csv"
 INDICES_MASTER = DATA / "Indicies Master_System.csv"
 
-
-# ---------------- CORE FUNCTION ----------------
+# =========================
+# 🧠 CORE ENGINE
+# =========================
 
 def process_keys(records, master_file, key_map):
     if not master_file.exists():
@@ -70,11 +91,14 @@ def process_keys(records, master_file, key_map):
 
     return new_rows
 
-
-# ---------------- API ----------------
+# =========================
+# 🌐 API ENDPOINTS
+# =========================
 
 @app.route("/check-securities", methods=["POST"])
 def check_securities():
+    verify_agent(request)
+
     payload = request.get_json(force=True)
 
     new_equity = process_keys(
@@ -101,19 +125,23 @@ def check_securities():
         "new_indices": new_indices
     })
 
-
 @app.route("/upload", methods=["POST"])
 def upload():
+    verify_agent(request)
+
     file = request.files["file"]
     path = OUT / file.filename
     file.save(path)
     return jsonify({"download_url": f"/download/{file.filename}"})
 
-
 @app.route("/download/<name>")
 def download(name):
+    verify_agent(request)
     return send_file(OUT / name, as_attachment=True)
 
+# =========================
+# 🚀 SERVER
+# =========================
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
