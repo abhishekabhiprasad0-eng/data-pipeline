@@ -178,6 +178,15 @@ def run_daily_nse():
 
     return jsonify(artifact)
 
+@app.route("/list-nse-files")
+def list_nse_files():
+    base = RAW
+    result = {}
+    for path in base.rglob("*"):
+        if path.is_file():
+            result[str(path.relative_to(RAW))] = path.stat().st_size
+    return jsonify(result)
+
 # =========================
 # 🏁 SERVER
 # =========================
