@@ -1,5 +1,9 @@
 import csv
 import os
+import io
+import json
+import zipfile
+import requests
 from datetime import datetime
 from pathlib import Path
 from flask import Flask, request, jsonify, send_file, abort
@@ -54,13 +58,24 @@ OUT  = Path("outputs")
 DATA.mkdir(exist_ok=True)
 OUT.mkdir(exist_ok=True)
 
-# 🔒 DO NOT RENAME — MATCH AGENT CONTRACT
+# 🔒 MASTER FILES
 EQUITY_MASTER  = DATA / "Equity Master_System.csv"
 MF_MASTER      = DATA / "MF Master_System.csv"
 INDICES_MASTER = DATA / "Indicies Master_System.csv"
 
 # =========================
-# 🧠 CORE ENGINE
+# 📦 NSE STORAGE LAYOUT
+# =========================
+
+BASE_STORAGE = Path("storage")
+RAW = BASE_STORAGE / "raw" / "nse"
+ARTIFACTS = BASE_STORAGE / "artifacts" / "daily_reports"
+
+RAW.mkdir(parents=True, exist_ok=True)
+ARTIFACTS.mkdir(parents=True, exist_ok=True)
+
+# =========================
+# 🧠 MASTER SYNC ENGINE
 # =========================
 
 def process_keys(records, master_file, key_map):
@@ -70,13 +85,6 @@ def process_keys(records, master_file, key_map):
     with open(master_file, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
-
-        if not fieldnames:
-            abort(500, f"Master file has no header: {master_file.name}")
-
-        for k, col in key_map.items():
-            if col not in fieldnames:
-                abort(500, f"Missing column '{col}' in {master_file.name}")
 
         existing = set()
         for row in reader:
@@ -98,17 +106,8 @@ def process_keys(records, master_file, key_map):
 
         for r in new_rows:
             row = {col: "" for col in fieldnames}
-
             for k, col in key_map.items():
                 row[col] = r.get(k, "")
-
-            if "Date Created" in fieldnames:
-                row["Date Created"] = datetime.now().strftime("%d-%m-%Y")
-            if "Created in system" in fieldnames:
-                row["Created in system"] = "Y"
-            if "Is active" in fieldnames:
-                row["Is active"] = "Y"
-
             writer.writerow(row)
 
     return new_rows
@@ -120,37 +119,17 @@ def process_keys(records, master_file, key_map):
 @app.route("/check-securities", methods=["POST"])
 def check_securities():
     verify_agent(request)
-
     payload = request.get_json(force=True)
 
-    new_equity = process_keys(
-        payload.get("equity", []),
-        EQUITY_MASTER,
-        {"isin": "ISIN", "symbol": "Code", "series": "Series"}
-    )
-
-    new_mf = process_keys(
-        payload.get("mf", []),
-        MF_MASTER,
-        {"scheme_code": "Scheme Code", "isin": "ISIN"}
-    )
-
-    new_indices = process_keys(
-        payload.get("indices", []),
-        INDICES_MASTER,
-        {"index_code": "Code", "index_name": "Index Name"}
-    )
-
     return jsonify({
-        "new_equity": new_equity,
-        "new_mf": new_mf,
-        "new_indices": new_indices
+        "new_equity": process_keys(payload.get("equity", []), EQUITY_MASTER, {"isin":"ISIN","symbol":"Code","series":"Series"}),
+        "new_mf": process_keys(payload.get("mf", []), MF_MASTER, {"scheme_code":"Scheme Code","isin":"ISIN"}),
+        "new_indices": process_keys(payload.get("indices", []), INDICES_MASTER, {"index_code":"Code","index_name":"Index Name"})
     })
 
 @app.route("/upload", methods=["POST"])
 def upload():
     verify_agent(request)
-
     file = request.files["file"]
     path = OUT / file.filename
     file.save(path)
@@ -160,6 +139,44 @@ def upload():
 def download(name):
     verify_agent(request)
     return send_file(OUT / name, as_attachment=True)
+
+# ===============================
+# 🧾 DAILY NSE ENGINE
+# ===============================
+
+def build_paths(date: datetime):
+    base = RAW / date.strftime("%Y") / date.strftime("%m") / date.strftime("%d")
+    base.mkdir(parents=True, exist_ok=True)
+    return base
+
+@app.route("/run-daily-nse", methods=["POST"])
+def run_daily_nse():
+    verify_agent(request)
+
+    run_date = datetime.strptime(request.json["date"], "%Y-%m-%d")
+    folder = build_paths(run_date)
+
+    fname = f"BhavCopy_NSE_CM_0_0_0_{run_date.strftime('%Y%m%d')}_F_0000.csv.zip"
+    url = f"https://archives.nseindia.com/content/cm/{fname}"
+
+    zip_path = folder / fname
+    r = requests.get(url, headers={"User-Agent":"Mozilla/5.0"}, timeout=30)
+    r.raise_for_status()
+    zip_path.write_bytes(r.content)
+
+    with zipfile.ZipFile(io.BytesIO(r.content)) as z:
+        z.extractall(folder)
+
+    artifact = {
+        "date": run_date.strftime("%Y-%m-%d"),
+        "status": "SUCCESS",
+        "files": [f.name for f in folder.iterdir()]
+    }
+
+    report_path = ARTIFACTS / f"{run_date.strftime('%Y-%m-%d')}.json"
+    report_path.write_text(json.dumps(artifact, indent=2))
+
+    return jsonify(artifact)
 
 # =========================
 # 🏁 SERVER
