@@ -35,6 +35,16 @@ def root():
 def health_check():
     return jsonify({"status": "ok", "service": "data-pipeline"}), 200
 
+@app.route("/handshake", methods=["POST"])
+def handshake():
+    verify_agent(request)
+    return jsonify({
+        "status": "ready",
+        "service": "data-pipeline",
+        "version": "1.0",
+        "time": datetime.utcnow().isoformat()
+    })
+
 # =========================
 # 🗂 FILE SYSTEM SETUP
 # =========================
