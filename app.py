@@ -427,6 +427,78 @@ def run_daily_gsec():
 
     return jsonify(artifact)
 
+# ===============================
+# 🧾 DAILY MF ENGINE
+# ===============================
+
+MF_RAW = BASE_STORAGE / "raw" / "mf"
+MF_RAW.mkdir(parents=True, exist_ok=True)
+
+def next_day(date):
+    return date + timedelta(days=1)
+
+def fetch_amfi_nav(date: datetime):
+    d = date.strftime("%d-%b-%Y")
+    url = f"https://www.amfiindia.com/spages/NAVAll.txt?t={d}"
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+    return r.text
+
+def nav_to_csv(text: str, out_file: Path):
+    rows = []
+    for line in text.splitlines():
+        if ";" in line and line[0].isdigit():
+            rows.append(line.split(";"))
+
+    headers = [
+        "Scheme Code","ISIN Div Payout/ISIN Growth","ISIN Div Reinvestment",
+        "Scheme Name","Net Asset Value","Date"
+    ]
+
+    with open(out_file, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(headers)
+        writer.writerows(rows)
+
+@app.route("/run-daily-mf", methods=["POST"])
+def run_daily_mf():
+    verify_agent(request)
+
+    run_date = datetime.strptime(request.json["date"], "%Y-%m-%d")
+    day2 = next_day(run_date)
+
+    base = MF_RAW / run_date.strftime("%Y") / run_date.strftime("%m") / run_date.strftime("%d")
+    base.mkdir(parents=True, exist_ok=True)
+
+    all_new = []
+
+    for d in [run_date, day2]:
+        text = fetch_amfi_nav(d)
+        csv_file = base / f"MF_NAV_{d.strftime('%Y%m%d')}.csv"
+        nav_to_csv(text, csv_file)
+
+        with open(csv_file, newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            all_new.extend(list(reader))
+
+    new_master = process_keys(
+        all_new,
+        MF_MASTER,
+        {"Scheme Code": "Scheme Code", "ISIN Div Payout/ISIN Growth": "ISIN"}
+    )
+
+    artifact = {
+        "date": run_date.strftime("%Y-%m-%d"),
+        "files": [f.name for f in base.iterdir()],
+        "new_master_records": len(new_master),
+        "status": "SUCCESS"
+    }
+
+    report = ARTIFACTS / f"MF_{run_date.strftime('%Y-%m-%d')}.json"
+    report.write_text(json.dumps(artifact, indent=2))
+
+    return jsonify(artifact)
+
 # =========================
 # 🏁 SERVER
 # =========================
