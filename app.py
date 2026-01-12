@@ -6,6 +6,7 @@ import zipfile
 import requests
 import pandas as pd
 import textwrap
+from datetime import timedelta
 from datetime import datetime
 from pathlib import Path
 from flask import Flask, request, jsonify, send_file, abort
@@ -311,46 +312,6 @@ def run_cleaning():
     report_path.write_text(json.dumps(report, indent=2))
 
     return jsonify(report)
-
-# ===============================
-# 🧾 DAILY MUTUAL FUND ENGINE (AMFI)
-# ===============================
-
-AMFI_RAW = BASE_STORAGE / "raw" / "amfi"
-AMFI_RAW.mkdir(parents=True, exist_ok=True)
-
-@app.route("/run-daily-mf", methods=["POST"])
-def run_daily_mf():
-    verify_agent(request)
-
-    run_date = datetime.strptime(request.json["date"], "%Y-%m-%d")
-    folder = AMFI_RAW / run_date.strftime("%Y") / run_date.strftime("%m") / run_date.strftime("%d")
-    folder.mkdir(parents=True, exist_ok=True)
-
-    url = "https://www.amfiindia.com/spages/NAVAll.txt"
-    txt_path = folder / "NAVAll.txt"
-
-    r = requests.get(url, timeout=30)
-    r.raise_for_status()
-    txt_path.write_text(r.text)
-
-    lines = r.text.splitlines()
-    data = [l.split(";") for l in lines if l.count(";") > 5]
-
-    df = pd.DataFrame(data[1:], columns=data[0])
-    out_csv = folder / "MF_NAV.csv"
-    df.to_csv(out_csv, index=False)
-
-    artifact = {
-        "date": run_date.strftime("%Y-%m-%d"),
-        "type": "MF",
-        "files": [f.name for f in folder.iterdir()]
-    }
-
-    report_path = ARTIFACTS / f"MF_{run_date.strftime('%Y-%m-%d')}.json"
-    report_path.write_text(json.dumps(artifact, indent=2))
-
-    return jsonify(artifact)
 
 # ===============================
 # 📊 DAILY NIFTY INDICES ENGINE
