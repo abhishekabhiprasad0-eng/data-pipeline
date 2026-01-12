@@ -82,13 +82,13 @@ def run_cleaning():
     folder = RAW / "nse" / date.strftime("%Y/%m/%d")
     csv_file = next(f for f in folder.iterdir() if f.suffix == ".csv")
 
-    df = pd.read_csv(csv_file)
+    df = pd.read_csv(raw_csv, engine="python", on_bad_lines="skip")
     df.columns = [c.strip().upper() for c in df.columns]
 
     clean_file = CLEAN / f"bhav_{date.strftime('%Y%m%d')}.csv"
     df.to_csv(clean_file, index=False)
 
-    master = pd.read_csv(EQUITY_MASTER)
+    master = pd.read_csv(EQUITY_MASTER, engine="python", on_bad_lines="skip")
     existing = set(zip(master["ISIN"], master["Code"], master["Series"]))
 
     new = []
@@ -114,35 +114,36 @@ def run_cleaning():
 @app.route("/run-daily-mf", methods=["POST"])
 def run_daily_mf():
     verify_agent(request)
-    date = datetime.strptime(request.json["date"], "%Y-%m-%d")
-    folder = RAW / "mf" / date.strftime("%Y/%m/%d")
+
+    run_date = datetime.strptime(request.json["date"], "%Y-%m-%d")
+    url = "https://www.amfiindia.com/spages/NAVAll.txt"
+    
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+
+    folder = BASE_STORAGE / "raw" / "mf" / run_date.strftime("%Y/%m/%d")
     folder.mkdir(parents=True, exist_ok=True)
 
-    all_rows = []
+    csv_path = folder / f"MF_NAV_{run_date.strftime('%Y%m%d')}.csv"
 
-    for d in [date, date + timedelta(days=1)]:
-        url = f"https://www.amfiindia.com/spages/NAVAll.txt?t={d.strftime('%d-%b-%Y')}"
-        text = requests.get(url).text
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["Scheme Code","ISIN","Scheme Name","NAV","Date"])
 
-        rows = [r.split(";") for r in text.splitlines() if r and r[0].isdigit()]
-        out = folder / f"MF_{d.strftime('%Y%m%d')}.csv"
+        for line in r.text.splitlines():
+            parts = line.split(";")
+            if len(parts) < 6 or not parts[0].isdigit():
+                continue   # skip corrupt lines safely
 
-        with open(out, "w", newline="") as f:
-            w = csv.writer(f)
-            w.writerow(["Scheme Code","ISIN","Name","NAV","Date"])
-            for r in rows:
-                w.writerow([r[0], r[1], r[3], r[4], r[5]])
-                all_rows.append({"Scheme Code": r[0], "ISIN": r[1]})
+            w.writerow([parts[0], parts[1], parts[3], parts[4], parts[5]])
 
-    master = pd.read_csv(MF_MASTER)
-    existing = set(zip(master["Scheme Code"], master["ISIN"]))
+    artifact = {
+        "date": run_date.strftime("%Y-%m-%d"),
+        "files": [csv_path.name],
+        "status": "SUCCESS"
+    }
 
-    new = [r for r in all_rows if (r["Scheme Code"], r["ISIN"]) not in existing]
-
-    if new:
-        pd.concat([master, pd.DataFrame(new)]).to_csv(MF_MASTER, index=False)
-
-    return {"date": request.json["date"], "new_master": len(new), "status": "SUCCESS"}
+    return jsonify(artifact)
 
 # =========================================================
 # 📊 NIFTY
