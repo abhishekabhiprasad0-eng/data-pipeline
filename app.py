@@ -4,6 +4,8 @@ import io
 import json
 import zipfile
 import requests
+import pandas as pd
+import textwrap
 from datetime import datetime
 from pathlib import Path
 from flask import Flask, request, jsonify, send_file, abort
@@ -73,6 +75,9 @@ ARTIFACTS = BASE_STORAGE / "artifacts" / "daily_reports"
 
 RAW.mkdir(parents=True, exist_ok=True)
 ARTIFACTS.mkdir(parents=True, exist_ok=True)
+
+GSEC_RAW = BASE_STORAGE / "raw" / "gsec"
+GSEC_RAW.mkdir(parents=True, exist_ok=True)
 
 # =========================
 # 🧠 MASTER SYNC ENGINE
@@ -229,6 +234,198 @@ def run_daily_nse_internal(date_str):
 
     request = old_request
     return response
+
+# ===============================
+# 🧹 CLEANING & MASTER SYNC ENGINE
+# ===============================
+
+CLEANED = BASE_STORAGE / "cleaned"
+REPORTS = BASE_STORAGE / "reports"
+
+CLEANED.mkdir(parents=True, exist_ok=True)
+REPORTS.mkdir(parents=True, exist_ok=True)
+
+def load_bhavcopy(date):
+    folder = RAW / date.strftime("%Y") / date.strftime("%m") / date.strftime("%d")
+    for f in folder.iterdir():
+        if f.suffix == ".csv":
+            return f
+    abort(500, "Bhavcopy CSV not found")
+
+def normalize(df):
+    df.columns = [c.strip().upper() for c in df.columns]
+    df["SYMBOL"] = df["SYMBOL"].astype(str).str.strip()
+    df["SERIES"] = df["SERIES"].astype(str).str.strip()
+    df["ISIN"]   = df["ISIN"].astype(str).str.strip()
+    return df
+
+def sync_equity_master(df):
+    master = pd.read_csv(EQUITY_MASTER)
+    existing = set(zip(master["ISIN"], master["Code"], master["Series"]))
+
+    new_rows = []
+    for _, r in df.iterrows():
+        key = (r["ISIN"], r["SYMBOL"], r["SERIES"])
+        if key not in existing:
+            new_rows.append({
+                "ISIN": r["ISIN"],
+                "Code": r["SYMBOL"],
+                "Series": r["SERIES"],
+                "Date Created": datetime.now().strftime("%d-%m-%Y"),
+                "Created in system": "Y",
+                "Is active": "Y"
+            })
+            existing.add(key)
+
+    if new_rows:
+        updated = pd.concat([master, pd.DataFrame(new_rows)], ignore_index=True)
+        updated.to_csv(EQUITY_MASTER, index=False)
+
+    return new_rows
+
+@app.route("/run-cleaning", methods=["POST"])
+def run_cleaning():
+    verify_agent(request)
+
+    run_date = datetime.strptime(request.json["date"], "%Y-%m-%d")
+    raw_csv = load_bhavcopy(run_date)
+
+    df = pd.read_csv(raw_csv)
+    df = normalize(df)
+
+    # Save cleaned file
+    clean_path = CLEANED / f"bhav_{run_date.strftime('%Y%m%d')}_clean.csv"
+    df.to_csv(clean_path, index=False)
+
+    # Sync with master
+    new_equities = sync_equity_master(df)
+
+    # Reports
+    report = {
+        "date": run_date.strftime("%Y-%m-%d"),
+        "cleaned_file": str(clean_path),
+        "new_equities_added": len(new_equities)
+    }
+
+    report_path = REPORTS / f"{run_date.strftime('%Y-%m-%d')}.json"
+    report_path.write_text(json.dumps(report, indent=2))
+
+    return jsonify(report)
+
+# ===============================
+# 🧾 DAILY MUTUAL FUND ENGINE (AMFI)
+# ===============================
+
+AMFI_RAW = BASE_STORAGE / "raw" / "amfi"
+AMFI_RAW.mkdir(parents=True, exist_ok=True)
+
+@app.route("/run-daily-mf", methods=["POST"])
+def run_daily_mf():
+    verify_agent(request)
+
+    run_date = datetime.strptime(request.json["date"], "%Y-%m-%d")
+    folder = AMFI_RAW / run_date.strftime("%Y") / run_date.strftime("%m") / run_date.strftime("%d")
+    folder.mkdir(parents=True, exist_ok=True)
+
+    url = "https://www.amfiindia.com/spages/NAVAll.txt"
+    txt_path = folder / "NAVAll.txt"
+
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+    txt_path.write_text(r.text)
+
+    lines = r.text.splitlines()
+    data = [l.split(";") for l in lines if l.count(";") > 5]
+
+    df = pd.DataFrame(data[1:], columns=data[0])
+    out_csv = folder / "MF_NAV.csv"
+    df.to_csv(out_csv, index=False)
+
+    artifact = {
+        "date": run_date.strftime("%Y-%m-%d"),
+        "type": "MF",
+        "files": [f.name for f in folder.iterdir()]
+    }
+
+    report_path = ARTIFACTS / f"MF_{run_date.strftime('%Y-%m-%d')}.json"
+    report_path.write_text(json.dumps(artifact, indent=2))
+
+    return jsonify(artifact)
+
+# ===============================
+# 📊 DAILY NIFTY INDICES ENGINE
+# ===============================
+
+NIFTY_RAW = BASE_STORAGE / "raw" / "nifty"
+NIFTY_RAW.mkdir(parents=True, exist_ok=True)
+
+@app.route("/run-daily-nifty", methods=["POST"])
+def run_daily_nifty():
+    verify_agent(request)
+
+    run_date = datetime.strptime(request.json["date"], "%Y-%m-%d")
+    folder = NIFTY_RAW / run_date.strftime("%Y") / run_date.strftime("%m") / run_date.strftime("%d")
+    folder.mkdir(parents=True, exist_ok=True)
+
+    url = "https://www.niftyindices.com/Backpage.aspx/getHistoricaldatatabletoString"
+
+    payload = {
+        "cinfo": json.dumps({
+            "name": "NIFTY 50",
+            "startDate": run_date.strftime("%d-%b-%Y"),
+            "endDate": run_date.strftime("%d-%b-%Y"),
+            "indexName": "NIFTY 50"
+        })
+    }
+
+    r = requests.post(url, json=payload, timeout=30)
+    r.raise_for_status()
+
+    data = r.json()["d"]
+    out_csv = folder / "NIFTY50.csv"
+    out_csv.write_text(data)
+
+    artifact = {
+        "date": run_date.strftime("%Y-%m-%d"),
+        "type": "NIFTY",
+        "files": [f.name for f in folder.iterdir()]
+    }
+
+    report_path = ARTIFACTS / f"NIFTY_{run_date.strftime('%Y-%m-%d')}.json"
+    report_path.write_text(json.dumps(artifact, indent=2))
+
+    return jsonify(artifact)
+
+# ===============================
+# 🏦 DAILY G-SEC ENGINE
+# ===============================
+
+@app.route("/run-daily-gsec", methods=["POST"])
+def run_daily_gsec():
+    verify_agent(request)
+
+    run_date = datetime.strptime(request.json["date"], "%Y-%m-%d")
+    folder = GSEC_RAW / run_date.strftime("%Y") / run_date.strftime("%m") / run_date.strftime("%d")
+    folder.mkdir(parents=True, exist_ok=True)
+
+    url = "https://www.rbi.org.in/Scripts/BS_ViewGsecData.aspx"
+
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+
+    raw_path = folder / "GSEC_RAW.html"
+    raw_path.write_text(r.text, encoding="utf-8")
+
+    artifact = {
+        "date": run_date.strftime("%Y-%m-%d"),
+        "type": "GSEC",
+        "files": [f.name for f in folder.iterdir()]
+    }
+
+    report_path = ARTIFACTS / f"GSEC_{run_date.strftime('%Y-%m-%d')}.json"
+    report_path.write_text(json.dumps(artifact, indent=2))
+
+    return jsonify(artifact)
 
 # =========================
 # 🏁 SERVER
