@@ -187,6 +187,49 @@ def list_nse_files():
             result[str(path.relative_to(RAW))] = path.stat().st_size
     return jsonify(result)
 
+# ===============================
+# 🤖 AGENT COMMAND BRIDGE
+# ===============================
+
+@app.route("/agent-command", methods=["POST"])
+def agent_command():
+    verify_agent(request)
+
+    payload = request.get_json(force=True)
+    command = payload.get("command", "").strip().lower()
+
+    if not command.startswith("start "):
+        return jsonify({"error": "Invalid command. Use: start YYYY-MM-DD bhav"}), 400
+
+    try:
+        _, date_str, mode = command.split()
+
+        if mode != "bhav":
+            return jsonify({"error": "Invalid mode. Only 'bhav' supported."}), 400
+
+        # 🔗 Call your existing NSE engine internally
+        return run_daily_nse_internal(date_str)
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+
+def run_daily_nse_internal(date_str):
+    run_date = datetime.strptime(date_str, "%Y-%m-%d")
+
+    # Build a fake request payload and reuse your real engine
+    class DummyRequest:
+        json = {"date": date_str}
+
+    global request
+    old_request = request
+    request = DummyRequest()
+
+    response = run_daily_nse()
+
+    request = old_request
+    return response
+
 # =========================
 # 🏁 SERVER
 # =========================
